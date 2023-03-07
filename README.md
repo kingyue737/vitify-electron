@@ -1,3 +1,3 @@
-# vitify-next
+# electron-vite-starter
 
 🚧 WIP

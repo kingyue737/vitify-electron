@@ -1,8 +1,9 @@
 <template>
   <div></div>
 </template>
-<route lang="json">
-{
-  "redirect": "homepage"
-}
-</route>
+
+<script setup lang="ts">
+definePage({
+  redirect: 'page1',
+})
+</script>

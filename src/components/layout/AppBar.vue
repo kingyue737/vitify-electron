@@ -11,3 +11,9 @@ const route = useRoute()
     <div id="app-bar"></div>
   </v-app-bar>
 </template>
+
+<style scoped>
+.v-app-bar {
+  -webkit-app-region: drag;
+}
+</style>

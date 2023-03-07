@@ -75,17 +75,10 @@ nextTick(() => {
         <div class="text-body-2 font-weight-light pt-6 pt-md-0 text-center">
           &copy; Copyright 2023
           <a
-            href="https://github.com/kingyue737"
-            class="font-weight-regular"
-            target="_blank"
-            >Yue JIN</a
-          >
-          <span> & </span>
-          <a
             href="https://www.nustarnuclear.com/"
             class="font-weight-regular"
             target="_blank"
-            >NuStar</a
+            >NuStar Nuclear</a
           >
         </div>
       </v-list-item>
@@ -125,6 +118,8 @@ nextTick(() => {
     .v-avatar {
       border-radius: 0;
     }
+    user-select: none;
+    -webkit-app-region: drag;
   }
 }
 </style>
