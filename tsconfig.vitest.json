@@ -4,6 +4,11 @@
   "compilerOptions": {
     "composite": true,
     "lib": [],
-    "types": ["node", "jsdom", "vitest/globals"]
+    "types": [
+      "node",
+      "jsdom",
+      "vitest/globals",
+      "vite-plugin-vue-layouts/client"
+    ]
   }
 }
