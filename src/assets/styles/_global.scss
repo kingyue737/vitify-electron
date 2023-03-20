@@ -1,8 +1,12 @@
 html {
   overflow-y: auto;
 }
-button {
-  -webkit-app-region: no-drag;
+.v-app-bar {
+  -webkit-app-region: drag;
+  button,
+  a:not(.v-breadcrumbs-item--disabled) {
+    -webkit-app-region: no-drag;
+  }
 }
 .v-card--variant-elevated:not(.v-card--flat) {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);

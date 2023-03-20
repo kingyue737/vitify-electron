@@ -138,5 +138,8 @@ nextTick(() => {
   .v-list-item {
     transition: all 0.2s;
   }
+  .v-navigation-drawer__prepend {
+    -webkit-app-region: drag;
+  }
 }
 </style>

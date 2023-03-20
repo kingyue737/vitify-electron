@@ -25,17 +25,16 @@ const breadcrumbs = computed(() => {
     <div id="app-bar"></div>
     <v-btn
       icon="mdi-github"
+      size="sm"
       href="https://github.com/kingyue737/vitify-next"
       target="_blank"
+      class="mt-7 pr-1"
     />
   </v-app-bar>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 :deep(.v-breadcrumbs-divider) {
   opacity: 0.5;
-}
-.v-app-bar {
-  -webkit-app-region: drag;
 }
 </style>
