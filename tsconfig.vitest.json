@@ -1,14 +1,10 @@
 {
   "extends": "./tsconfig.app.json",
+  "include": ["./src/**/*", "./test/*"],
   "exclude": [],
   "compilerOptions": {
     "composite": true,
     "lib": [],
-    "types": [
-      "node",
-      "jsdom",
-      "vitest/globals",
-      "vite-plugin-vue-layouts/client"
-    ]
+    "types": ["node", "jsdom", "vitest/globals"]
   }
 }
