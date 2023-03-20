@@ -34,6 +34,7 @@ const menuShow = ref(false)
 const isDark = useDark({
   onChanged(dark: boolean) {
     theme.global.name.value = dark ? 'dark' : 'light'
+    window.electronAPI.toggleDark(dark)
   },
 })
 const toggleDark = useToggle(isDark)

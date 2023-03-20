@@ -64,9 +64,19 @@ export default defineConfig({
       sourceMap: false,
       preventAssignment: false,
     }),
-    Electron({
-      entry: 'electron/main.ts',
-    }),
+    Electron([
+      {
+        entry: 'electron/main.ts',
+      },
+      {
+        entry: 'electron/preload.ts',
+        onstart(options) {
+          // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete,
+          // instead of restarting the entire Electron App.
+          options.reload()
+        },
+      },
+    ]),
   ],
   css: {
     devSourcemap: true,
