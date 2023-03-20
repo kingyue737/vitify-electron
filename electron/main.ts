@@ -5,6 +5,7 @@ app.whenReady().then(() => {
     frame: false,
     width: 1500,
     height: 900,
+    icon: __dirname + '/../public/favicon.png',
     titleBarStyle: 'hidden',
     titleBarOverlay: {
       color: '#fdfdfd',
