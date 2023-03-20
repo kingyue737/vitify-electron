@@ -25,10 +25,10 @@ const breadcrumbs = computed(() => {
     <div id="app-bar"></div>
     <v-btn
       icon="mdi-github"
-      size="33"
+      size="40"
       href="https://github.com/kingyue737/vitify-electron"
       target="_blank"
-      class="mt-7"
+      class="mt-7 mr-2"
     />
   </v-app-bar>
 </template>

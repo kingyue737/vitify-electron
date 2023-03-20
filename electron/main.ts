@@ -6,6 +6,8 @@ app.whenReady().then(() => {
     frame: false,
     width: 1500,
     height: 900,
+    minHeight: 400,
+    minWidth: 300,
     icon: join(__dirname, '../public/favicon.png'),
     titleBarStyle: 'hidden',
     titleBarOverlay: {

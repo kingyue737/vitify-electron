@@ -38,7 +38,7 @@ definePage({
 <style lang="scss" scoped>
 .wrapper {
   position: relative;
-  top: calc(50vh - 330px);
+  top: max(50vh - 300px, 0px);
   text-align: center;
 }
 </style>

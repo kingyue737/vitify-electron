@@ -40,10 +40,10 @@ nextTick(() => {
     <template #image="{ image }">
       <v-img
         v-show="drawerImageShow"
-        cover
         :gradient="gradient"
         :src="image"
         height="100%"
+        style="object-fit: none"
       />
     </template>
     <template #prepend>
