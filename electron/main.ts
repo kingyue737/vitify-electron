@@ -11,7 +11,7 @@ app.whenReady().then(() => {
     icon: join(__dirname, '../public/favicon.png'),
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#fdfdfd',
+      color: '#ffffff',
       symbolColor: '#434343',
       height: 30,
     },
@@ -24,7 +24,7 @@ app.whenReady().then(() => {
     win.setTitleBarOverlay(
       dark
         ? { color: '#212121', symbolColor: '#999999' }
-        : { color: '#fdfdfd', symbolColor: '#434343' }
+        : { color: '#ffffff', symbolColor: '#434343' }
     )
   })
 
