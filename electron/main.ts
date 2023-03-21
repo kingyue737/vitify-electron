@@ -1,6 +1,8 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'node:path'
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
 app.whenReady().then(() => {
   const win = new BrowserWindow({
     frame: false,
