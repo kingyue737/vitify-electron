@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/electron-builder",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": ["dist-electron", "dist"],
+  "win": {
+    "icon": "dist/favicon.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true
+  }
+}
