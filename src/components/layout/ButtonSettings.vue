@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app'
 import { useDark, useToggle } from '@vueuse/core'
 import { mergeProps } from 'vue'
 import drawer1 from '@/assets/images/drawer1.jpg'
