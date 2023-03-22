@@ -16,6 +16,7 @@ import { mapKeys, kebabCase } from 'lodash'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: { target: 'esnext', chunkSizeWarningLimit: 5000 },
   plugins: [
     VueRouter({ importMode: 'sync', dts: './src/typed-router.d.ts' }),
     Vue({ template: { transformAssetUrls } }),
@@ -86,7 +87,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  build: { chunkSizeWarningLimit: 5000 },
   test: {
     globals: true,
     include: ['test/**/*.test.ts', 'src/**/__tests__/*'],
