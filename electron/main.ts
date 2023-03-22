@@ -38,3 +38,7 @@ app.whenReady().then(() => {
     win.loadFile('dist/index.html')
   }
 })
+
+app.on('browser-window-created', (e, win) => {
+  win.removeMenu()
+})
