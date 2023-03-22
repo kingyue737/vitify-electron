@@ -42,7 +42,7 @@ specifiers:
   vue-echarts: ^6.5.4
   vue-router: ^4.1.6
   vue-tsc: ^1.2.0
-  vuetify: ^3.1.10
+  vuetify: ^3.1.11
 
 dependencies:
   '@mdi/js': 7.2.96
@@ -53,7 +53,7 @@ dependencies:
   vue: 3.2.47
   vue-echarts: 6.5.4_echarts@5.4.1+vue@3.2.47
   vue-router: 4.1.6_vue@3.2.47
-  vuetify: 3.1.10_zhdigtlnoj4qfl4bi7c6fb2bly
+  vuetify: 3.1.11_zhdigtlnoj4qfl4bi7c6fb2bly
 
 devDependencies:
   '@pinia/testing': 0.0.15_pinia@2.0.33+vue@3.2.47
@@ -85,7 +85,7 @@ devDependencies:
   vite: 4.2.1_y7rghahg7ddu72pko63vhsxa44
   vite-plugin-electron: 0.11.1
   vite-plugin-vue-layouts: 0.8.0_asesa6ksds7mbxqm7d5qamvm34
-  vite-plugin-vuetify: 1.0.2_fp2zrls6cqaupo2avwxb7vhcoi
+  vite-plugin-vuetify: 1.0.2_5flnkut7ct7ufjezhxohn33wuu
   vite-svg-loader: 4.0.0
   vitest: 0.29.7_jsdom@21.1.1+sass@1.59.3
   vue-tsc: 1.2.0_typescript@4.9.5
@@ -979,8 +979,8 @@ packages:
       '@volar/vue-language-core': 1.2.0
     dev: true
 
-  /@vue-macros/common/1.1.1_vue@3.2.47:
-    resolution: {integrity: sha512-IoyVHnq8BqaQyiASlXwSM+AHkCfsMQEV8cpjYXnFgdtJMQKbCGYA0PQfGkNq4ZTEq8FHFbL0jSrOt1HYQj7zfQ==}
+  /@vue-macros/common/1.1.2_vue@3.2.47:
+    resolution: {integrity: sha512-G/lAdxB/jO0wUcn1n2N1WxbSke0lShjpKxvIF2hRVLAbyautlSozGp5kLJ+BqSdVB0QmmNONpCtk8GR7ZIJJCA==}
     engines: {node: '>=14.19.0'}
     peerDependencies:
       vue: ^2.7.0 || ^3.2.25
@@ -989,10 +989,13 @@ packages:
         optional: true
     dependencies:
       '@babel/types': 7.21.3
+      '@rollup/pluginutils': 5.0.2
       '@vue/compiler-sfc': 3.2.47
       local-pkg: 0.4.3
       magic-string: 0.30.0
       vue: 3.2.47
+    transitivePeerDependencies:
+      - rollup
     dev: true
 
   /@vue/compiler-core/3.2.47:
@@ -1143,7 +1146,7 @@ packages:
       '@types/node': 18.15.5
     dev: true
 
-  /@vuetify/loader-shared/1.7.1_vue@3.2.47+vuetify@3.1.10:
+  /@vuetify/loader-shared/1.7.1_vue@3.2.47+vuetify@3.1.11:
     resolution: {integrity: sha512-kLUvuAed6RCvkeeTNJzuy14pqnkur8lTuner7v7pNE/kVhPR97TuyXwBSBMR1cJeiLiOfu6SF5XlCYbXByEx1g==}
     peerDependencies:
       vue: ^3.0.0
@@ -1152,7 +1155,7 @@ packages:
       find-cache-dir: 3.3.2
       upath: 2.0.1
       vue: 3.2.47
-      vuetify: 3.1.10_zhdigtlnoj4qfl4bi7c6fb2bly
+      vuetify: 3.1.11_zhdigtlnoj4qfl4bi7c6fb2bly
 
   /@vueuse/core/9.13.0_vue@3.2.47:
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
@@ -5400,7 +5403,7 @@ packages:
     dependencies:
       '@babel/types': 7.21.3
       '@rollup/pluginutils': 5.0.2
-      '@vue-macros/common': 1.1.1_vue@3.2.47
+      '@vue-macros/common': 1.1.2_vue@3.2.47
       ast-walker-scope: 0.4.0
       chokidar: 3.5.3
       fast-glob: 3.2.12
@@ -5535,18 +5538,18 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-vuetify/1.0.2_fp2zrls6cqaupo2avwxb7vhcoi:
+  /vite-plugin-vuetify/1.0.2_5flnkut7ct7ufjezhxohn33wuu:
     resolution: {integrity: sha512-MubIcKD33O8wtgQXlbEXE7ccTEpHZ8nPpe77y9Wy3my2MWw/PgehP9VqTp92BLqr0R1dSL970Lynvisx3UxBFw==}
     engines: {node: '>=12'}
     peerDependencies:
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0
       vuetify: ^3.0.0-beta.4
     dependencies:
-      '@vuetify/loader-shared': 1.7.1_vue@3.2.47+vuetify@3.1.10
+      '@vuetify/loader-shared': 1.7.1_vue@3.2.47+vuetify@3.1.11
       debug: 4.3.4
       upath: 2.0.1
       vite: 4.2.1_y7rghahg7ddu72pko63vhsxa44
-      vuetify: 3.1.10_zhdigtlnoj4qfl4bi7c6fb2bly
+      vuetify: 3.1.11_zhdigtlnoj4qfl4bi7c6fb2bly
     transitivePeerDependencies:
       - supports-color
       - vue
@@ -5738,8 +5741,8 @@ packages:
       '@vue/server-renderer': 3.2.47_vue@3.2.47
       '@vue/shared': 3.2.47
 
-  /vuetify/3.1.10_zhdigtlnoj4qfl4bi7c6fb2bly:
-    resolution: {integrity: sha512-TFugKhjYO+xktnexHcs/vdsqtq+MZk8MDLbSJX9vMsA58LPwO4atdBbWhQ1Pf8q1jPISpxDF6njjsZHPQQsHCA==}
+  /vuetify/3.1.11_zhdigtlnoj4qfl4bi7c6fb2bly:
+    resolution: {integrity: sha512-EAR/7vdYY0jCYW+sn9owl6CC5QsWFw100KJnK0ahdHnFj9B93PR5xetekge8BsEWx6bSnsRIOdPyvud+p29wow==}
     engines: {node: ^12.20 || >=14.13}
     peerDependencies:
       vite-plugin-vuetify: ^1.0.0-alpha.12
@@ -5754,7 +5757,7 @@ packages:
       webpack-plugin-vuetify:
         optional: true
     dependencies:
-      vite-plugin-vuetify: 1.0.2_fp2zrls6cqaupo2avwxb7vhcoi
+      vite-plugin-vuetify: 1.0.2_5flnkut7ct7ufjezhxohn33wuu
       vue: 3.2.47
 
   /w3c-xmlserializer/4.0.0:
