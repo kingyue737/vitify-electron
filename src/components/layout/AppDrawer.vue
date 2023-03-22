@@ -43,7 +43,6 @@ nextTick(() => {
         :gradient="gradient"
         :src="image"
         height="100%"
-        style="object-fit: none"
       />
     </template>
     <template #prepend>
@@ -137,6 +136,9 @@ nextTick(() => {
   }
   .v-list-item {
     transition: all 0.2s;
+  }
+  .v-img__img--contain {
+    object-fit: none;
   }
   .v-navigation-drawer__prepend {
     -webkit-app-region: drag;
