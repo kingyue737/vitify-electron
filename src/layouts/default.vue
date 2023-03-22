@@ -24,7 +24,7 @@ useTitle(title)
   padding-bottom: 0;
   margin-bottom: var(--v-layout-bottom);
   height: calc(100vh - var(--v-layout-top) - var(--v-layout-bottom));
-  overflow-y: auto;
+  overflow-y: overlay;
   transition-property: padding;
 }
 </style>

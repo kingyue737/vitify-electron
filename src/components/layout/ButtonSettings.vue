@@ -61,7 +61,7 @@ const toggleDark = useToggle(isDark)
         <span>界面设置</span>
       </v-tooltip>
     </template>
-    <v-card width="320">
+    <v-card width="320" max-height="calc(100vh - 130px)">
       <v-card-text class="text-center">
         <v-label class="mb-3">主题色</v-label>
         <v-color-picker
