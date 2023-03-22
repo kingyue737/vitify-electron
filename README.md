@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/40021217/226882143-361c2697-b793-43ea-9a64-65eadb031466.png" width="800" style="border-radius: 5px"/>
+<img src="https://user-images.githubusercontent.com/40021217/226892769-15ddc27b-2c4f-484c-9253-290182046329.png" width="800"/>
 </p>
 
 <h2 align="center">
@@ -40,6 +40,11 @@ Opinionated Starter Template
 - 🎨 Theme color customization and dark mode
 
 - 📱 Responsive layout
+
+## Variations
+
+- [vitify-admin](https://github.com/kingyue737/vitify-electron) - Vite + Vuetify 2, Opinionated Admin Stater Template
+- [vitify-next](https://github.com/kingyue737/vitify-next) - Lightweight Vue 3 version of Vitify Admin
 
 ## Usage
 
