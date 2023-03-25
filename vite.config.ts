@@ -10,8 +10,7 @@ import VueRouter from 'unplugin-vue-router/vite'
 import Layouts from 'vite-plugin-vue-layouts'
 import Electron from 'vite-plugin-electron'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-// @ts-ignore next-line
-import Modify from 'rollup-plugin-modify'
+import Modify from '@kingyue/rollup-plugin-modify'
 import * as mdicons from '@mdi/js'
 import { mapKeys, kebabCase } from 'lodash'
 
@@ -61,6 +60,7 @@ export default defineConfig({
       dirs: ['src/stores'],
     }),
     Modify({
+      exclude: ['node_modules/**'],
       find: /\b(?<![/\w])(mdi-[\w-]+)\b(?!\.)/,
       replace: (match: string) =>
         mapKeys(mdicons, (v, k) => kebabCase(k))[match],
