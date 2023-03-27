@@ -4,7 +4,7 @@
   "directories": {
     "output": "release/${version}"
   },
-  "files": ["dist-electron", "dist"],
+  "files": ["dist-electron", "dist", "!node_modules/**/*"],
   "win": {
     "icon": "dist/favicon.ico",
     "target": [
