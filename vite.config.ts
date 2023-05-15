@@ -18,6 +18,13 @@ import { mapKeys, kebabCase } from 'lodash'
 export default defineConfig({
   build: { target: 'esnext', chunkSizeWarningLimit: 5000 },
   plugins: [
+    Modify({
+      exclude: ['node_modules/**'],
+      find: /\b(?<![/\w])(mdi-[\w-]+)\b(?!\.)/,
+      replace: (match: string) =>
+        mapKeys(mdicons, (v, k) => kebabCase(k))[match],
+      sourcemap: false,
+    }),
     VueRouter({ importMode: 'sync', dts: './src/typed-router.d.ts' }),
     Vue({ template: { transformAssetUrls } }),
     SvgLoader({
@@ -58,13 +65,6 @@ export default defineConfig({
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/stores'],
-    }),
-    Modify({
-      exclude: ['node_modules/**'],
-      find: /\b(?<![/\w])(mdi-[\w-]+)\b(?!\.)/,
-      replace: (match: string) =>
-        mapKeys(mdicons, (v, k) => kebabCase(k))[match],
-      sourcemap: false,
     }),
     Electron([
       {

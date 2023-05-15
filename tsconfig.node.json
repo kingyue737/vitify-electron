@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "extends": "./tsconfig.app.json",
   "include": ["vite.config.*", "electron/**/*", "playwright.config.*"],
   "compilerOptions": {
     "composite": true,
