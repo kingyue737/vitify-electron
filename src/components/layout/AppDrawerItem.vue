@@ -2,7 +2,7 @@
 import type { RouteRecordRaw } from 'vue-router/auto'
 defineOptions({ name: 'AppDrawerItem' })
 const props = withDefaults(
-  defineProps<{ level: number; item: RouteRecordRaw }>(),
+  defineProps<{ level?: number; item: RouteRecordRaw }>(),
   { level: 0 }
 )
 const visibleChildren = computed(() =>
