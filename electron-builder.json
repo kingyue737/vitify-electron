@@ -5,6 +5,7 @@
     "output": "release/${version}"
   },
   "files": ["dist-electron", "dist", "!node_modules/**/*"],
+  "electronLanguages":["zh-CN"],
   "win": {
     "icon": "dist/favicon.ico",
     "target": [
