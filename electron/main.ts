@@ -13,7 +13,7 @@ app.whenReady().then(() => {
     icon: join(__dirname, '../public/favicon.ico'),
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#ffffff',
+      color: '#ffffff00',
       symbolColor: '#434343',
       height: 30,
     },
@@ -25,8 +25,8 @@ app.whenReady().then(() => {
   ipcMain.handle('darkMode:toggle', (event, dark: boolean) => {
     win.setTitleBarOverlay(
       dark
-        ? { color: '#212121', symbolColor: '#999999' }
-        : { color: '#ffffff', symbolColor: '#434343' }
+        ? { color: '#21212100', symbolColor: '#999999' }
+        : { color: '#ffffff00', symbolColor: '#434343' }
     )
   })
 
