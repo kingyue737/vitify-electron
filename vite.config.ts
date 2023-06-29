@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import SvgLoader from 'vite-svg-loader'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -25,6 +26,7 @@ export default defineConfig({
         mapKeys(mdicons, (v, k) => kebabCase(k))[match],
       sourcemap: false,
     }),
+    VueDevTools(),
     VueRouter({ importMode: 'sync', dts: './src/typed-router.d.ts' }),
     Vue({ template: { transformAssetUrls } }),
     SvgLoader({
