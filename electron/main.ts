@@ -13,7 +13,7 @@ app.whenReady().then(() => {
     icon: join(__dirname, '../public/favicon.ico'),
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#ffffff00',
+      color: '#f3f3f300',
       symbolColor: '#434343',
       height: 30,
     },
@@ -21,18 +21,18 @@ app.whenReady().then(() => {
       preload: join(__dirname, 'preload.js'),
     },
   })
-  win.webContents.openDevTools()
 
   ipcMain.handle('darkMode:toggle', (event, dark: boolean) => {
     win.setTitleBarOverlay(
       dark
         ? { color: '#21212100', symbolColor: '#999999' }
-        : { color: '#ffffff00', symbolColor: '#434343' }
+        : { color: '#f3f3f300', symbolColor: '#434343' },
     )
   })
 
   // You can use `process.env.VITE_DEV_SERVER_URL` when the vite command is called `serve`
   if (process.env.VITE_DEV_SERVER_URL) {
+    win.webContents.openDevTools()
     win.loadURL(process.env.VITE_DEV_SERVER_URL)
   } else {
     // Load your file

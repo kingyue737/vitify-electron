@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDark, useToggle } from '@vueuse/core'
+const theme = useTheme()
 const { drawer } = storeToRefs(useAppStore())
 const route = useRoute()
 const breadcrumbs = computed(() => {
@@ -15,21 +17,43 @@ const breadcrumbs = computed(() => {
       to: r.path,
     }))
 })
+const isDark = useDark({
+  onChanged(dark: boolean) {
+    theme.global.name.value = dark ? 'dark' : 'light'
+    window.electronAPI.toggleDark(dark)
+  },
+})
+const toggleDark = useToggle(isDark)
 </script>
 
 <template>
-  <v-app-bar flat border style="border-width: 0 0 1px 0">
+  <v-app-bar flat>
     <v-app-bar-nav-icon @click="drawer = !drawer" />
     <v-breadcrumbs :items="breadcrumbs"> </v-breadcrumbs>
     <v-spacer />
     <div id="app-bar"></div>
-    <v-btn
-      icon="mdi-github"
-      size="40"
-      href="https://github.com/kingyue737/vitify-electron"
-      target="_blank"
-      class="mt-7 mr-2"
-    />
+    <div class="mt-7 mr-2 d-flex">
+      <v-btn
+        icon
+        href="https://github.com/kingyue737/vitify-electron"
+        size="small"
+        class="ml-2"
+        target="_blank"
+      >
+        <v-icon size="30" icon="mdi-github"></v-icon>
+      </v-btn>
+      <v-switch
+        :model-value="isDark"
+        color=""
+        hide-details
+        density="compact"
+        inset
+        false-icon="mdi-white-balance-sunny"
+        true-icon="mdi-weather-night"
+        style="opacity: 0.8"
+        @update:model-value="toggleDark"
+      ></v-switch>
+    </div>
   </v-app-bar>
 </template>
 
