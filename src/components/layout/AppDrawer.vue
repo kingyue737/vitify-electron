@@ -21,7 +21,7 @@ const rail = computed(() => !drawerStored.value && !mobile.value)
 const gradient = computed(() =>
   useTheme().current.value.dark
     ? 'to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, .7)'
-    : 'to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, .7)'
+    : 'to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, .7)',
 )
 routes.sort((a, b) => (a.meta?.drawerIndex ?? 99) - (b.meta?.drawerIndex ?? 98))
 
@@ -56,7 +56,10 @@ nextTick(() => {
               color="primary"
             />
           </template>
-          <v-list-item-title class="text-h5" style="line-height: 2rem">
+          <v-list-item-title
+            class="text-h5 font-weight-bold"
+            style="line-height: 2rem"
+          >
             Vitify <span class="text-primary">Admin</span>
           </v-list-item-title>
         </v-list-item>
@@ -69,18 +72,18 @@ nextTick(() => {
     <v-spacer />
     <template #append>
       <v-list-item class="drawer-footer px-0 d-flex flex-column justify-center">
-        <div class="text-body-2 font-weight-light pt-6 pt-md-0 text-center">
+        <div class="text-caption pt-6 pb-1 pt-md-0 text-center">
           &copy; Copyright 2023
           <a
             href="https://github.com/kingyue737"
-            class="font-weight-regular"
+            class="font-weight-bold"
             target="_blank"
             >Yue JIN</a
           >
           <span> & </span>
           <a
             href="https://www.nustarnuclear.com/"
-            class="font-weight-regular"
+            class="font-weight-bold"
             target="_blank"
             >NuStar</a
           >
@@ -128,7 +131,6 @@ nextTick(() => {
     height: 1.2em !important;
     width: 1.2em !important;
     transition: all 0.2s;
-    margin-inline-end: 24px !important;
   }
   .v-list-group {
     // --list-indent-size: 10px;

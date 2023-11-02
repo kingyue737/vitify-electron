@@ -21,6 +21,7 @@ app.whenReady().then(() => {
       preload: join(__dirname, 'preload.js'),
     },
   })
+  win.webContents.openDevTools()
 
   ipcMain.handle('darkMode:toggle', (event, dark: boolean) => {
     win.setTitleBarOverlay(

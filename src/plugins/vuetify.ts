@@ -1,14 +1,16 @@
 import 'vuetify/styles'
 import type { FunctionalComponent } from 'vue'
 import { createVuetify, type IconSet, type IconProps } from 'vuetify'
+import { VDataTable } from 'vuetify/labs/VDataTable'
 import { en, zhHans } from 'vuetify/locale'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-import { mdiAlertCircle, mdiCloseCircle } from '@mdi/js'
 import { useDark } from '@vueuse/core'
 
-// fix vuetify#16870(https://github.com/vuetifyjs/vuetify/issues/16870)
-aliases['warning'] = mdiAlertCircle
-aliases['error'] = mdiCloseCircle
+type UnwrapReadonlyArrayType<A> = A extends Readonly<Array<infer I>>
+  ? UnwrapReadonlyArrayType<I>
+  : A
+type DT = InstanceType<typeof VDataTable>
+export type DataTableHeader = UnwrapReadonlyArrayType<DT['headers']>
 
 function filename(path: string) {
   return path
@@ -23,8 +25,8 @@ const svgIcons = Object.fromEntries(
       eager: true,
       import: 'default',
       as: 'component',
-    })
-  ).map(([k, v]) => [filename(k), v])
+    }),
+  ).map(([k, v]) => [filename(k), v]),
 )
 const custom: IconSet = {
   component: (props: IconProps) =>
@@ -39,6 +41,7 @@ const theme = {
 }
 
 export default createVuetify({
+  components: { VDataTable },
   locale: {
     locale: 'zhHans',
     fallback: 'en',

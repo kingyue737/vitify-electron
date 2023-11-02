@@ -9,11 +9,23 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import Layouts from 'vite-plugin-vue-layouts'
-import Electron from 'vite-plugin-electron'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Modify from '@kingyue/rollup-plugin-modify'
 import * as mdicons from '@mdi/js'
 import { mapKeys, kebabCase } from 'lodash'
+import Electron from 'vite-plugin-electron'
+import { notBundle } from 'vite-plugin-electron/plugin'
+
+const mdi: Record<string, string> = {}
+Object.keys(mdicons).forEach((key) => {
+  const value = (mdicons as Record<string, string>)[key]
+  mdi[
+    key.replace(
+      /[A-Z]+(?![a-z])|[A-Z0-9]/g,
+      ($, ofs) => (ofs ? '-' : '') + $.toLowerCase(),
+    )
+  ] = value
+})
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,8 +34,14 @@ export default defineConfig({
     Modify({
       exclude: ['node_modules/**'],
       find: /\b(?<![/\w])(mdi-[\w-]+)\b(?!\.)/,
-      replace: (match: string) =>
-        mapKeys(mdicons, (v, k) => kebabCase(k))[match],
+      replace: (match: string) => {
+        if (mdi[match]) {
+          return mdi[match]
+        } else {
+          console.warn('[plugin-modify] No matched svg icon for ' + match)
+          return match
+        }
+      },
       sourcemap: false,
     }),
     VueDevTools(),
@@ -71,6 +89,9 @@ export default defineConfig({
     Electron([
       {
         entry: 'electron/main.ts',
+        vite: {
+          plugins: [notBundle(/* NotBundleOptions */)],
+        },
       },
       {
         entry: 'electron/preload.ts',
