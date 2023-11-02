@@ -43,8 +43,10 @@ Opinionated Starter Template
 
 ## Variations
 
+- [vitify-nuxt](https://github.com/kingyue737/vitify-nuxt) - Vuetify 3 with Nuxt 3, the best DX 🔥🔥🔥
+
+- [vitify-next](https://github.com/kingyue737/vitify-next) - Lightweight Vue 3 version without Electron
 - [vitify-admin](https://github.com/kingyue737/vitify-electron) - Vite + Vuetify 2, Opinionated Admin Stater Template
-- [vitify-next](https://github.com/kingyue737/vitify-next) - Lightweight Vue 3 version of Vitify Admin
 
 ## Usage
 
