@@ -1,11 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/electron-builder",
+  "$schema": "node_modules/app-builder-lib/scheme.json",
   "asar": true,
   "directories": {
     "output": "release/${version}"
   },
   "files": ["dist-electron", "dist", "!node_modules/**/*"],
-  "electronLanguages":["zh-CN"],
+  "electronLanguages": ["zh-CN"],
   "win": {
     "icon": "dist/favicon.ico",
     "target": [
