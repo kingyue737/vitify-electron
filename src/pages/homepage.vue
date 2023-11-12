@@ -35,7 +35,7 @@ definePage({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .wrapper {
   position: relative;
   top: max(50vh - 300px, 0px);

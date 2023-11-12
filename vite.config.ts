@@ -4,7 +4,6 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import SvgLoader from 'vite-svg-loader'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
@@ -21,7 +20,7 @@ Object.keys(mdicons).forEach((key) => {
   mdi[
     key.replace(
       /[A-Z]+(?![a-z])|[A-Z0-9]/g,
-      ($, ofs) => (ofs ? '-' : '') + $.toLowerCase(),
+      ($, ofs) => (ofs ? '-' : '') + $.toLowerCase()
     )
   ] = value
 })
@@ -46,24 +45,6 @@ export default defineConfig({
     VueDevTools(),
     VueRouter({ importMode: 'sync', dts: './src/typed-router.d.ts' }),
     Vue({ template: { transformAssetUrls } }),
-    SvgLoader({
-      svgoConfig: {
-        plugins: [
-          'cleanupEnableBackground',
-          'removeDoctype',
-          'removeMetadata',
-          'removeComments',
-          'removeXMLNS',
-          'removeXMLProcInst',
-          'sortDefsChildren',
-          'convertTransform',
-          {
-            name: 'addClassesToSVGElement',
-            params: { className: 'v-icon__svg' },
-          },
-        ],
-      },
-    }),
     Layouts(),
     Vuetify({ autoImport: true }),
     Components({ dts: './src/components.d.ts', types: [] }),

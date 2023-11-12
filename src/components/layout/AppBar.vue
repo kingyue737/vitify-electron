@@ -57,7 +57,7 @@ const toggleDark = useToggle(isDark)
   </v-app-bar>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 :deep(.v-breadcrumbs-divider) {
   opacity: 0.5;
 }

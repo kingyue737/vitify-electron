@@ -6,11 +6,11 @@ html {
 }
 .v-app-bar {
   -webkit-app-region: drag;
-  button,
-  .v-input,
-  a:not(.v-breadcrumbs-item--disabled) {
-    -webkit-app-region: no-drag;
-  }
+}
+button,
+.v-input,
+a:not(.v-breadcrumbs-item--disabled) {
+  -webkit-app-region: no-drag;
 }
 .v-card--variant-elevated:not(.v-card--flat) {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
@@ -43,7 +43,6 @@ html {
   border-radius: 0 !important;
 }
 
-// adjust select input postion and height
 .v-data-table-footer {
   .v-field__input {
     min-height: 36px;
@@ -59,4 +58,10 @@ html {
   .v-icon {
     color: rgb(var(--v-theme-primary));
   }
+}
+
+.v-icon svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
 }
