@@ -1,5 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-import { join } from 'node:path'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
