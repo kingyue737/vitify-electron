@@ -23,7 +23,7 @@ const isDark = useDark({
     window.electronAPI.toggleDark(dark)
   },
 })
-const toggleDark = useToggle(isDark)
+const toggleDark = useToggle<true, false | null>(isDark)
 </script>
 
 <template>
