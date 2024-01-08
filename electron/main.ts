@@ -22,7 +22,7 @@ app.whenReady().then(() => {
       height: 30,
     },
     webPreferences: {
-      preload: join(__dirname, 'preload.js'),
+      preload: join(__dirname, 'preload.mjs'),
     },
   })
 
