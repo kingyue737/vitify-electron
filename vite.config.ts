@@ -126,22 +126,6 @@ export default defineConfig(({ command }) => {
         // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
         // renderer: {},
       }),
-      // Electron([
-      //   {
-      //     entry: 'electron/main.ts',
-      //     vite: {
-      //       plugins: [notBundle(/* NotBundleOptions */)],
-      //     },
-      //   },
-      //   {
-      //     entry: 'electron/preload.ts',
-      //     onstart(options) {
-      //       // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete,
-      //       // instead of restarting the entire Electron App.
-      //       options.reload()
-      //     },
-      //   },
-      // ]),
     ],
     css: {
       devSourcemap: true,
