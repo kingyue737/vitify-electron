@@ -10,7 +10,7 @@ import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import Layouts from 'vite-plugin-vue-meta-layouts'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-import Modify from '@kingyue/rollup-plugin-modify'
+import pluginRegexp from 'rollup-plugin-regexp'
 import * as mdicons from '@mdi/js'
 import Electron from 'vite-plugin-electron/simple'
 import { notBundle } from 'vite-plugin-electron/plugin'
@@ -37,14 +37,14 @@ export default defineConfig(({ command }) => {
   return {
     build: { target: 'esnext', chunkSizeWarningLimit: 5000 },
     plugins: [
-      Modify({
+      pluginRegexp({
         exclude: ['node_modules/**'],
         find: /\b(?<![/\w])(mdi-[\w-]+)\b(?!\.)/,
         replace: (match: string) => {
           if (mdi[match]) {
             return mdi[match]
           } else {
-            console.warn('[plugin-modify] No matched svg icon for ' + match)
+            console.warn('[plugin-regexp] No matched svg icon for ' + match)
             return match
           }
         },

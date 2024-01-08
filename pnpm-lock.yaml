@@ -31,9 +31,6 @@ dependencies:
     version: 3.4.9(typescript@5.3.3)(vite-plugin-vuetify@2.0.1)(vue@3.4.5)
 
 devDependencies:
-  '@kingyue/rollup-plugin-modify':
-    specifier: ^4.1.0
-    version: 4.1.0
   '@pinia/testing':
     specifier: ^0.1.3
     version: 0.1.3(pinia@2.1.7)(vue@3.4.5)
@@ -82,6 +79,9 @@ devDependencies:
   prettier:
     specifier: ^3.1.1
     version: 3.1.1
+  rollup-plugin-regexp:
+    specifier: ^5.0.1
+    version: 5.0.1
   tree-kill:
     specifier: ^1.2.2
     version: 1.2.2
@@ -844,15 +844,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
-  /@kingyue/rollup-plugin-modify@4.1.0:
-    resolution: {integrity: sha512-KKQoD10NlHONAIPCmwGysP7N/UZ773+1wIeh+cXtOe9MRtGjYVa1INV4oyEVkWYu/KbAeKZWRw3IU+NifVVwRg==}
-    dependencies:
-      '@rollup/pluginutils': 5.1.0
-      magic-string: 0.30.5
-    transitivePeerDependencies:
-      - rollup
     dev: true
 
   /@malept/cross-spawn-promise@1.1.1:
@@ -4498,6 +4489,15 @@ packages:
       sprintf-js: 1.1.3
     dev: true
     optional: true
+
+  /rollup-plugin-regexp@5.0.1:
+    resolution: {integrity: sha512-0iYd6R8dkjt4ELNACA/FNoDeg4mKBR1jUvmZtPqg6BXQ22ml9HPRU6OtY4AjjiaA+jMxREAlfCVhY684LsGZgg==}
+    dependencies:
+      '@rollup/pluginutils': 5.1.0
+      magic-string: 0.30.5
+    transitivePeerDependencies:
+      - rollup
+    dev: true
 
   /rollup@4.9.4:
     resolution: {integrity: sha512-2ztU7pY/lrQyXSCnnoU4ICjT/tCG9cdH3/G25ERqE3Lst6vl2BCM5hL2Nw+sslAvAf+ccKsAq1SkKQALyqhR7g==}
