@@ -13,8 +13,8 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Modify from '@kingyue/rollup-plugin-modify'
 import * as mdicons from '@mdi/js'
 import Electron from 'vite-plugin-electron/simple'
-import pkg from './package.json'
 import { notBundle } from 'vite-plugin-electron/plugin'
+import pkg from './package.json'
 
 const mdi: Record<string, string> = {}
 Object.keys(mdicons).forEach((key) => {
@@ -102,6 +102,7 @@ export default defineConfig(({ command }) => {
                 ),
               },
             },
+            plugins: [command === 'serve' && notBundle(/* NotBundleOptions */)],
           },
         },
         preload: {
