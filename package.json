@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "typecheck": "vue-tsc --build --force",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "format": "prettier . --write"
   },
   "dependencies": {
@@ -39,7 +39,6 @@
     "electron": "^29.1.6",
     "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.24.0",
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "rollup-plugin-regexp": "^5.0.1",

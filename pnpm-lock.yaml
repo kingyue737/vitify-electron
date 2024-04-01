@@ -67,9 +67,6 @@ devDependencies:
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
-  eslint-plugin-vue:
-    specifier: ^9.24.0
-    version: 9.24.0(eslint@8.57.0)
   jsdom:
     specifier: ^24.0.0
     version: 24.0.0
