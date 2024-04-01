@@ -5,7 +5,7 @@ const notificationsShown = computed(() =>
   notifications.value.filter((notification) => notification.show).reverse(),
 )
 const showAll = ref(false)
-const timeout = ref(5000)
+const timeout = computed(() => (showAll.value ? -1 : 5000))
 function deleteNotification(id: number) {
   notificationStore.delNotification(id)
 }
@@ -17,16 +17,11 @@ function toggleAll() {
   notifications.value.forEach((m) => {
     m.show = showAll.value
   })
-  if (showAll.value) {
-    timeout.value = -1
-  } else {
-    timeout.value = 5000
-  }
 }
 </script>
 
 <template>
-  <v-tooltip location="top">
+  <v-tooltip location="top" text="Notification">
     <template #activator="{ props }">
       <v-btn
         :icon="
@@ -35,10 +30,8 @@ function toggleAll() {
         :rounded="0"
         v-bind="props"
         @click="toggleAll"
-      >
-      </v-btn>
+      />
     </template>
-    <span>通知</span>
   </v-tooltip>
   <teleport to="#app">
     <v-card
@@ -50,24 +43,29 @@ function toggleAll() {
       <v-toolbar flat density="compact">
         <v-toolbar-title
           class="font-weight-light text-body-1"
-          :text="notifications.length ? '通知' : '没有新的通知'"
-        >
-        </v-toolbar-title>
-        <v-btn
-          size="small"
-          icon="mdi-bell-remove"
-          title="清空所有通知"
-          @click="emptyNotifications"
-        >
-        </v-btn>
-        <v-btn
-          class="mr-0"
-          size="small"
-          icon="$expand"
-          title="隐藏"
-          @click="toggleAll"
-        >
-        </v-btn>
+          :text="notifications.length ? 'Notification' : 'No New Notifications'"
+        />
+        <v-tooltip location="top" text="Clear All Notifications">
+          <template #activator="{ props }">
+            <v-btn
+              v-bind="props"
+              size="small"
+              icon="mdi-bell-remove"
+              @click="emptyNotifications"
+            />
+          </template>
+        </v-tooltip>
+        <v-tooltip location="top" text="Hide Notifications">
+          <template #activator="{ props }">
+            <v-btn
+              v-bind="props"
+              class="mr-0"
+              size="small"
+              icon="$expand"
+              @click="toggleAll"
+            />
+          </template>
+        </v-tooltip>
       </v-toolbar>
       <v-slide-y-reverse-transition
         tag="div"
@@ -82,7 +80,6 @@ function toggleAll() {
         >
           <AppNotificationItem
             v-model="notification.show"
-            :variant="showAll"
             :notification="notification"
             :timeout="timeout"
             class="notification-item"

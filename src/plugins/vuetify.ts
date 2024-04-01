@@ -4,6 +4,10 @@ import { en, zhHans } from 'vuetify/locale'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import { useDark } from '@vueuse/core'
 import { md3 } from 'vuetify/blueprints'
+import type { VDataTable } from 'vuetify/lib/components/index.mjs'
+export type DataTableHeaders = InstanceType<
+  typeof VDataTable
+>['$props']['headers']
 
 function filename(path: string) {
   return path
@@ -16,7 +20,8 @@ const svgIcons = Object.fromEntries(
   Object.entries(
     import.meta.glob('@/assets/icons/*.svg', {
       eager: true,
-      as: 'raw',
+      query: '?raw',
+      import: 'default',
     }),
   ).map(([k, v]) => [filename(k), v]),
 )
@@ -28,9 +33,6 @@ const custom: IconSet = {
 
 const theme = {
   primary: localStorage.getItem('theme-primary') || '#1697f6',
-  secondary: '#03A9F4',
-  accent: '#9C27b0',
-  info: '#00CAE3',
 }
 
 export default createVuetify({

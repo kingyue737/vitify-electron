@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routes } from 'vue-router/auto/routes'
+import { routes } from 'vue-router/auto-routes'
 
 const appStore = useAppStore()
 const { drawer: drawerStored } = storeToRefs(appStore)
@@ -24,7 +24,7 @@ nextTick(() => {
 <template>
   <v-navigation-drawer v-model="drawer" :expand-on-hover="rail" :rail="rail">
     <template #prepend>
-      <v-list dense nav>
+      <v-list>
         <v-list-item class="pa-1">
           <template #prepend>
             <v-icon
