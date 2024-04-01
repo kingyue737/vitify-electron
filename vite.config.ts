@@ -14,7 +14,6 @@ import pluginRegexp from 'rollup-plugin-regexp'
 import * as mdicons from '@mdi/js'
 import Electron from 'vite-plugin-electron/simple'
 import { notBundle } from 'vite-plugin-electron/plugin'
-import pkg from './package.json'
 
 const mdi: Record<string, string> = {}
 Object.keys(mdicons).forEach((key) => {
@@ -127,9 +126,7 @@ export default defineConfig(({ command }) => {
       include: ['test/**/*.test.ts', 'src/**/__tests__/*'],
       environment: 'jsdom',
       setupFiles: ['./test/setup.ts'],
-      deps: {
-        inline: ['vuetify'],
-      },
+      server: { deps: { inline: ['vuetify'] } },
     },
   }
 })

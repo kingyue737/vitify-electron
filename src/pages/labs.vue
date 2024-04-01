@@ -118,7 +118,7 @@ const desserts = ref([
             :headers="headers"
             :items="desserts"
             item-value="name"
-          ></v-data-table>
+          />
         </v-card>
       </v-col>
     </v-row>

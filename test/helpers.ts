@@ -4,7 +4,7 @@ import { createTestingPinia } from '@pinia/testing'
 
 export function renderWithVuetify(
   component: Parameters<typeof render>[0],
-  options: Parameters<typeof render>[1] = {}
+  options: Parameters<typeof render>[1] = {},
 ) {
   const vuetify = createVuetify()
   return render(component, {

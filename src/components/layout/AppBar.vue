@@ -29,9 +29,9 @@ const toggleDark = useToggle<true, false | null>(isDark)
 <template>
   <v-app-bar flat>
     <v-app-bar-nav-icon @click="drawer = !drawer" />
-    <v-breadcrumbs :items="breadcrumbs"> </v-breadcrumbs>
+    <v-breadcrumbs :items="breadcrumbs" />
     <v-spacer />
-    <div id="app-bar"></div>
+    <div id="app-bar" />
     <div class="mt-7 mr-2 d-flex">
       <v-btn
         icon
@@ -40,7 +40,7 @@ const toggleDark = useToggle<true, false | null>(isDark)
         class="ml-2"
         target="_blank"
       >
-        <v-icon size="30" icon="mdi-github"></v-icon>
+        <v-icon size="30" icon="mdi-github" />
       </v-btn>
       <v-switch
         :model-value="isDark"
@@ -52,7 +52,7 @@ const toggleDark = useToggle<true, false | null>(isDark)
         true-icon="mdi-weather-night"
         style="opacity: 0.8"
         @update:model-value="toggleDark"
-      ></v-switch>
+      />
     </div>
   </v-app-bar>
 </template>
