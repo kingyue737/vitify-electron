@@ -4,7 +4,8 @@
     "vite.config.*",
     "vitest.config.*",
     "playwright.config.*",
-    "eslint.config.*"
+    "eslint.config.*",
+    "electron/**/*"
   ],
   "compilerOptions": {
     "composite": true,
