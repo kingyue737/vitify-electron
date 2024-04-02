@@ -88,9 +88,15 @@ export default defineConfig(({ command }) => {
           },
           vite: {
             build: {
+              target: 'esnext',
               sourcemap,
               minify: isBuild,
               outDir: 'dist-electron',
+              rollupOptions: {
+                output: {
+                  inlineDynamicImports: true,
+                },
+              },
             },
             plugins: [command === 'serve' && notBundle(/* NotBundleOptions */)],
           },
@@ -101,6 +107,7 @@ export default defineConfig(({ command }) => {
           input: 'electron/preload.ts',
           vite: {
             build: {
+              target: 'esnext',
               sourcemap: sourcemap ? 'inline' : undefined, // #332
               minify: isBuild,
               outDir: 'dist-electron',
