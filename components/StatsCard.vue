@@ -60,7 +60,6 @@ withDefaults(
     width: fit-content;
     .card-title--name {
       display: inline-block;
-      backdrop-filter: blur(3px);
     }
   }
   .caption {
