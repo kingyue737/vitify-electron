@@ -52,8 +52,8 @@ Opinionated Starter Template
 
 - [x] Windows 11
 - [x] Windows 10
-- [] Linux
-- [] MacOS
+- [ ] Linux
+- [ ] MacOS
 
 ## Usage
 
