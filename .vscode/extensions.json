@@ -1,9 +1,0 @@
-{
-  "recommendations": [
-    "vue.volar",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "editorconfig.editorconfig",
-    "lukas-tr.materialdesignicons-intellisense"
-  ]
-}

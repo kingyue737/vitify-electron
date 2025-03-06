@@ -2,12 +2,28 @@
   "$schema": "node_modules/app-builder-lib/scheme.json",
   "asar": true,
   "directories": {
-    "output": "release/${version}"
+    "output": "release/${version}",
+    "buildResources": "dist"
   },
-  "files": ["dist-electron", "dist", "!node_modules/**/*"],
+  "electronDist": "./node_modules/electron/dist",
+  "files": ["dist-electron", ".output/**/*"],
   "electronLanguages": ["zh-CN"],
   "win": {
+    "signAndEditExecutable": false,
     "icon": "dist/favicon.ico",
+    "files": [
+      {
+        "from": "node_modules/@libsql/win32-x64-msvc",
+        "to": "node_modules/@libsql/win32-x64-msvc",
+        "filter": ["!{CHANGELOG.md,README.md,README,readme.md,readme}"]
+      }
+    ],
+    "extraFiles": [
+      {
+        "from": "drizzle",
+        "to": "drizzle"
+      }
+    ],
     "target": [
       {
         "target": "nsis",
@@ -15,10 +31,13 @@
       }
     ]
   },
+  "npmRebuild": false,
   "nsis": {
+    "installerLanguages": ["zh_CN"],
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": true
+    "deleteAppDataOnUninstall": false,
+    "differentialPackage": false
   }
 }
