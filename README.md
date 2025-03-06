@@ -1,13 +1,13 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/40021217/226892769-15ddc27b-2c4f-484c-9253-290182046329.png" width="800"/>
+<img src="https://github.com/user-attachments/assets/88ba1bd2-4a56-484b-ae58-98a90c6ba97c" width="800"/>
 </p>
 
 <h2 align="center">
-<a href="https://github.com/kingyue737/vitify-next">Vitify</a> with Electron
+<a href="https://github.com/kingyue737/vitify-nuxt">Vitify</a> with Electron
 </h2><br>
 
 <pre align="center">
-🖖 Vite + Vuetify 3 + Electron ⚛️
+⚛️ Electron + Nuxt + Vuetify
 Opinionated Starter Template
 </pre>
 
@@ -15,19 +15,17 @@ Opinionated Starter Template
 
 - ⚛️ [Electron](https://github.com/electron/electron) - Build cross-platform desktop apps with JavaScript, HTML, and CSS
 
-- ⚡️ [Vite 5](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
-
-- 🗂️ [File based routing](./src/pages)
-
-- 📑 [Layout system](./src/layouts)
+- 💚 [Nuxt](https://nuxt.com/) - SPA, File-based routing, Layout system, components auto importing, modules, etc
 
 - 🍍 [State Management via Pinia](https://pinia.vuejs.org/)
 
-- 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import) - use Composition API and others directly
+- 🧼 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new) powered by [@nuxt/eslint](https://github.com/nuxt/eslint), future-proof
 
-- 🧪 Unit/Component Testing with [Vitest](https://github.com/vitest-dev/vitest) + [Testing Library](https://github.com/testing-library/vue-testing-library)
+- 🦾 Typed IPC communication powered with [`@egoist/tipc`](https://github.com/egoist/tipc)
 
-- 🧼 [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new) with adapted [@nuxt/eslint](https://github.com/nuxt/eslint), future-proof
+- 📦 ESM Only - Configured [Rollup](https://rollupjs.org/) to transform CJS both in your main/renderer processes
+
+- 💾 Database - [SQLite](https://www.sqlite.org/) + [Drizzle ORM](https://orm.drizzle.team/), next gen TypeScript ORM DX
 
 ### App Starter Template
 
@@ -37,7 +35,7 @@ Opinionated Starter Template
 
 - 🔔 Notification store
 
-- 📉 Data visualization with [vue-echarts](https://github.com/ecomfe/vue-echarts)
+- 📉 Data visualization with [nuxt-echarts](https://github.com/kingyue737/nuxt-echarts)
 
 - 🎨 Theme color customization and dark mode
 
@@ -50,11 +48,16 @@ Opinionated Starter Template
 - [vitify-next](https://github.com/kingyue737/vitify-next) - Lightweight Vue 3 version without Electron
 - [vitify-admin](https://github.com/kingyue737/vitify-electron) - Vite + Vuetify 2, Opinionated Admin Stater Template
 
+## TODO
+
+- [x] Windows 11
+- [x] Windows 10
+- [] Linux
+- [] MacOS
+
 ## Usage
 
 ### Development
-
-Start a standalone [Vue devtools](https://github.com/vuejs/devtools) and launch Vite dev server
 
 ```bash
 pnpm dev

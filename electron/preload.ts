@@ -1,5 +1,13 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer, webUtils } from 'electron'
 
-contextBridge.exposeInMainWorld('electronAPI', {
-  toggleDark: (dark: boolean) => ipcRenderer.invoke('darkMode:toggle', dark),
-})
+const { invoke, on, off, send } = ipcRenderer
+const exposed = { ...ipcRenderer, invoke, on, off, send }
+contextBridge.exposeInMainWorld('ipcRenderer', exposed)
+contextBridge.exposeInMainWorld('webUtils', webUtils)
+
+declare global {
+  interface Window {
+    ipcRenderer: typeof exposed
+    webUtils: typeof webUtils
+  }
+}

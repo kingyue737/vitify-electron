@@ -1,23 +1,9 @@
-import {
-  createConfigForNuxt,
-  defineFlatConfigs,
-} from '@nuxt/eslint-config/flat'
+import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default defineFlatConfigs(
-  createConfigForNuxt({
-    dirs: {
-      // components: ['src/components'], // this will turn off multi-word component name
-      pages: ['src/pages'],
-      composables: ['src/composables', 'src/utils'],
-      layouts: ['src/layouts'],
-      plugins: ['src/plugins'],
-    },
-  }),
-  {
-    rules: {
-      'vue/valid-v-slot': ['error', { allowModifiers: true }],
-      'vue/no-multiple-template-root': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
+export default withNuxt({
+  rules: {
+    'vue/valid-v-slot': ['error', { allowModifiers: true }], // allow vuetify slot modifier
+    'vue/html-self-closing': ['error', { html: { void: 'any' } }], // not conflict with prettier
+    '@typescript-eslint/no-explicit-any': 'off',
   },
-)
+})

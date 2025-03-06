@@ -1,0 +1,6 @@
+vendor
+prebuilds
+dist-electron
+drizzle
+dist
+electron-builder.json

@@ -1,46 +1,90 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import {
+  app,
+  BrowserWindow,
+  Tray,
+  Menu,
+  nativeImage,
+  nativeTheme,
+} from 'electron'
+import { join } from 'node:path'
+import { registerIpcMain } from '@egoist/tipc/main'
+import { router } from './tipc'
+import { isWin11 } from './utils'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+registerIpcMain(router)
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
+let tray: Tray
+let win: BrowserWindow
+
+const gotTheLock = app.requestSingleInstanceLock()
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', () => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
+  })
+}
+
 app.whenReady().then(() => {
-  const win = new BrowserWindow({
+  const iconPath = join(
+    __dirname,
+    `..${import.meta.env.PROD ? '/.output' : ''}/public/favicon.ico`,
+  )
+
+  const isDark = nativeTheme.shouldUseDarkColors
+  win = new BrowserWindow({
     frame: false,
-    width: 1500,
+    width: 1550,
     height: 900,
     minHeight: 400,
-    minWidth: 300,
-    icon: join(__dirname, '../public/favicon.ico'),
+    minWidth: 350,
+    backgroundMaterial: isWin11 ? 'mica' : undefined,
+    backgroundColor: isWin11 ? undefined : isDark ? '#121212' : '#f3f3f3',
+    icon: iconPath,
     titleBarStyle: 'hidden',
-    titleBarOverlay: {
-      color: '#f3f3f300',
-      symbolColor: '#434343',
-      height: 30,
-    },
+    titleBarOverlay: isDark
+      ? { color: '#21212100', symbolColor: '#aaaaaa' }
+      : { color: '#f3f3f300', symbolColor: '#434343' },
     webPreferences: {
       preload: join(__dirname, 'preload.mjs'),
+      sandbox: false,
+      contextIsolation: true,
+      backgroundThrottling: false,
+      webSecurity: import.meta.env.DEV ? false : true,
     },
   })
 
-  ipcMain.handle('darkMode:toggle', (event, dark: boolean) => {
-    win.setTitleBarOverlay(
-      dark
-        ? { color: '#21212100', symbolColor: '#999999' }
-        : { color: '#f3f3f300', symbolColor: '#434343' },
-    )
+  tray = new Tray(nativeImage.createFromPath(iconPath))
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: '退出',
+      click() {
+        win.destroy()
+        app.quit()
+      },
+    },
+  ])
+  tray.setToolTip('Vitify Admin')
+  tray.setContextMenu(contextMenu)
+  tray.on('click', () => {
+    win.show()
   })
 
-  // You can use `process.env.VITE_DEV_SERVER_URL` when the vite command is called `serve`
-  if (process.env.VITE_DEV_SERVER_URL) {
-    win.webContents.openDevTools()
-    win.loadURL(process.env.VITE_DEV_SERVER_URL)
+  if (import.meta.env.DEV) {
+    win.loadURL(JSON.parse(process.env.__NUXT_DEV__!).proxy.url)
+    win.webContents.on('before-input-event', (event, input) => {
+      if (input.type === 'keyDown' && input.key === 'F12') {
+        win.webContents.toggleDevTools()
+      }
+    })
   } else {
-    // Load your file
-    win.loadFile('dist/index.html')
+    win.loadFile('.output/public/200.html')
   }
 })
 
