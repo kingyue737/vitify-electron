@@ -1,5 +1,6 @@
 import { notBundle } from 'vite-plugin-electron/plugin'
 import esmShim from '@rollup/plugin-esm-shim'
+import copy from 'rollup-plugin-copy'
 
 const isDev = import.meta.env.NODE_ENV === 'development'
 const isProd = import.meta.env.NODE_ENV === 'production'
@@ -63,10 +64,23 @@ export default defineNuxtConfig({
     build: [
       {
         vite: {
-          plugins: [isDev ? notBundle() : undefined, esmShim()],
+          plugins: [
+            isDev
+              ? notBundle()
+              : copy({
+                  targets: [
+                    {
+                      src: ['node_modules/@libsql/win32-x64-msvc', '!**/*.md'],
+                      dest: 'prebuild/@libsql',
+                    },
+                  ],
+                  dereference: true,
+                }),
+            esmShim(),
+          ],
           build: {
             target: 'esnext',
-            minify: true,
+            minify: isProd,
             commonjsOptions: {
               ignoreDynamicRequires: true,
             },

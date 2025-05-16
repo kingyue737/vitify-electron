@@ -1,10 +1,11 @@
 {
   "private": true,
   "name": "vitify-electron",
+  "version": "0.0.1",
   "description": "Nuxt + Vuetify + Electron, Opinionated Starter Template",
   "author": "Yue JIN <yuejin13@fudan.edu.cn>",
   "type": "module",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.11.0",
   "main": "dist-electron/main.js",
   "scripts": {
     "build": "nuxt generate && electron-builder",
@@ -22,34 +23,32 @@
   "devDependencies": {
     "@egoist/tipc": "^0.3.2",
     "@iconify-json/ph": "^1.2.2",
-    "@libsql/client": "^0.14.0",
-    "@nuxt/eslint": "^1.1.0",
-    "@nuxt/icon": "^1.10.3",
-    "@pinia/nuxt": "^0.10.1",
+    "@libsql/client": "^0.15.6",
+    "@nuxt/eslint": "^1.4.0",
+    "@nuxt/icon": "^1.13.0",
+    "@pinia/nuxt": "^0.11.0",
     "@rollup/plugin-esm-shim": "^0.1.8",
-    "@vueuse/nuxt": "^12.8.2",
-    "drizzle-kit": "^0.30.5",
-    "drizzle-orm": "^0.40.0",
+    "@vueuse/nuxt": "^13.2.0",
+    "drizzle-kit": "^0.31.1",
+    "drizzle-orm": "^0.43.1",
     "echarts": "^5.6.0",
-    "electron": "^34.3.0",
-    "electron-builder": "^25.1.8",
-    "electron-builder-squirrel-windows": "^25.1.8",
-    "eslint": "^9.21.0",
-    "nuxt": "^3.15.4",
-    "nuxt-echarts": "^0.2.6",
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.15",
+    "electron-builder-squirrel-windows": "^26.0.15",
+    "eslint": "^9.26.0",
+    "nuxt": "^3.17.3",
+    "nuxt-echarts": "^0.3.1",
     "nuxt-electron": "^0.7.0",
-    "pinia": "^3.0.1",
+    "pinia": "^3.0.2",
     "prettier": "^3.5.3",
-    "vue-tsc": "^2.2.8",
-    "vuetify-nuxt-module": "^0.18.3"
+    "rollup-plugin-copy": "^3.5.0",
+    "vue-tsc": "^2.2.10",
+    "vuetify-nuxt-module": "^0.18.6"
   },
   "pnpm": {
-    "overrides": {
-      "vite-plugin-checker": "^0.9.0",
-      "@vercel/nft": "^0.29.2"
-    },
     "onlyBuiltDependencies": [
-      "electron"
+      "electron",
+      "electron-winstaller"
     ]
   }
 }

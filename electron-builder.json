@@ -9,13 +9,11 @@
   "files": ["dist-electron", ".output/**/*"],
   "electronLanguages": ["zh-CN"],
   "win": {
-    "signAndEditExecutable": false,
     "icon": "dist/favicon.ico",
     "files": [
       {
-        "from": "node_modules/@libsql/win32-x64-msvc",
-        "to": "node_modules/@libsql/win32-x64-msvc",
-        "filter": ["!{CHANGELOG.md,README.md,README,readme.md,readme}"]
+        "from": "prebuild/@libsql/win32-x64-msvc",
+        "to": "node_modules/@libsql/win32-x64-msvc"
       }
     ],
     "extraFiles": [
