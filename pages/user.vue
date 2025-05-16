@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DataTableHeaders } from '~/plugins/vuetify'
+import type { DataTableHeader } from 'vuetify'
 
 definePageMeta({
   icon: 'ph:users-duotone',
@@ -7,7 +7,7 @@ definePageMeta({
   drawerIndex: 4,
 })
 
-const headers: DataTableHeaders = [
+const headers: DataTableHeader[] = [
   { title: 'ID', key: 'id' },
   { title: 'Name', key: 'name' },
   { title: 'Title', key: 'title' },

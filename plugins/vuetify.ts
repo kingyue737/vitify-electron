@@ -1,6 +1,5 @@
 import type { IconProps, IconAliases } from 'vuetify'
 import { Icon } from '#components'
-import type { VDataTable } from 'vuetify/components'
 import { useStorage } from '@vueuse/core'
 
 const aliases: IconAliases = {
@@ -44,8 +43,6 @@ const aliases: IconAliases = {
   treeviewExpand: 'ph-caret-right-fill',
   eyeDropper: 'ph:eyedropper',
 }
-
-export type DataTableHeaders = VDataTable['$props']['headers']
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('vuetify:configuration', ({ vuetifyOptions }) => {
