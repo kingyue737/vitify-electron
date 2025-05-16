@@ -19,11 +19,13 @@ export default defineVuetifyConfiguration({
       hover: true,
     },
     VNumberInput: {
+      variant: 'filled',
       color: 'primary',
       controlVariant: 'stacked',
       VBtn: {
         rounded: 0,
       },
+      precision: null,
     },
     VCard: {
       flat: true,
@@ -41,12 +43,31 @@ export default defineVuetifyConfiguration({
     VChip: { rounded: 'lg' },
     VSelect: {
       color: 'primary',
+      variant: 'filled',
+      glow: true,
+      iconColor: true,
     },
     VTextarea: {
       color: 'primary',
+      variant: 'filled',
     },
     VTextField: {
       color: 'primary',
+      glow: true,
+      iconColor: true,
+      variant: 'filled',
+    },
+    VAutocomplete: {
+      variant: 'filled',
+      color: 'primary',
+      glow: true,
+      iconColor: true,
+    },
+    VCombobox: {
+      variant: 'filled',
+      color: 'primary',
+      glow: true,
+      iconColor: true,
     },
     VCheckbox: {
       color: 'primary',
@@ -60,10 +81,6 @@ export default defineVuetifyConfiguration({
     VTooltip: {
       openDelay: 500,
       location: 'top',
-    },
-    VConfirmEdit: {
-      okText: '确认',
-      cancelText: '取消',
     },
   },
   display: {
