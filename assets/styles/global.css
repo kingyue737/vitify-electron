@@ -336,12 +336,18 @@ a:not(.v-breadcrumbs-item--disabled) {
   }
 }
 
-.vgl-item__resizer:before {
-  inset: 0 5px 5px 0 !important;
-}
-.vgl-layout {
-  --vgl-resizer-size: 12px !important;
-  --vgl-resizer-border-color: #6b6b6b !important;
+/* Not use pointer for button-like elements */
+.v-btn,
+.v-list-item,
+.v-tab,
+.v-select .v-field .v-text-field__prefix,
+.v-select .v-field .v-text-field__suffix,
+.v-select .v-field .v-field__input,
+.v-select .v-field,
+button,
+[role='button'],
+[type='button'] {
+  cursor: default !important;
 }
 
 /* Disable text selection globally */
